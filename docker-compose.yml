@@ -53,7 +53,7 @@ services:
       - MYSQL_PASSWORD=tlc
 
   doodleback:
-    build : ./api/
+    build: ./api/
     container_name: doodleback
     depends_on:
       - db
