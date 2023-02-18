@@ -44,7 +44,7 @@ services:
     image: mysql
     container_name: db
     ports:
-      - "3307:3306"
+      - "3306:3306"
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD=true
       - MYSQL_ROOT_PASSWORD=tlc
@@ -74,7 +74,7 @@ services:
       - 443:8443
     volumes:
       - ./server-confs:/server-confs
-      #- ./certificates:/etc/letsencrypt
+   #   - ./certificates:/etc/letsencrypt
     environment:
       - SERVER_NAME=ibmaltc.diverse-team.fr pad.ibmaltc.diverse-team.fr myadmin.ibmaltc.diverse-team.fr localhost
       - SERVE_FILES=yes

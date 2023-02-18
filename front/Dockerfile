@@ -16,6 +16,8 @@ FROM bunkerity/bunkerized-nginx as prod
 
 COPY --from=build-step /app/dist/out/ /www/
 ADD api.conf /server-confs/api.conf
+ADD pad.conf /server-confs/pad.conf
+ADD myadmin.conf /server-confs/api.conf
 
 EXPOSE 8080
 CMD [ "npm", "start" ]

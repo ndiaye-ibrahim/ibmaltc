@@ -12,5 +12,5 @@ RUN apt-get update && apt-get install --no-install-recommends -y\
 RUN git clone https://github.com/ndiaye-ibrahim/ibmaltc
 WORKDIR /ibmaltc/api
 RUN mvn compile quarkus:dev && mvn package && ./mvw install 
-CMD ["java", "-Djava.library.path=target/lib", "-jar", "target/code-with-quarkus-1.0.0-SNAPSHOT-runner.jar"]
+CMD ["java", "-Djava.library.path=target/lib", "-jar", "target/tlcdemoApp-1.0.0-SNAPSHOT-runner.jar"]
 EXPOSE 8080
