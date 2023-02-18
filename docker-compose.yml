@@ -33,18 +33,18 @@ version: "3.8"
     #ports:
      # - "2525:25"
 services:
- #webserver:
-    #image: jwilder/nginx-proxy
-    #ports:
-   #   - 8081:80 #pour http
-  #    - 443:443 #pour https 
- #   volumes:
-#      - /var/run/docker.sock:/tmp/docker.sock:ro
+  #webserver:
+    # image: jwilder/nginx-proxy
+    # ports:
+   #    - 8083:80 #pour http
+  #     - 444:443 #pour https 
+ #    volumes:
+#       - /var/run/docker.sock:/tmp/docker.sock:ro
   db:
     image: mysql
     container_name: db
     ports:
-      - "3306:3306"
+      - "3307:3306"
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD=true
       - MYSQL_ROOT_PASSWORD=tlc
@@ -54,7 +54,7 @@ services:
 
   doodleback:
     build: ./api/
-    container_name: doodleback
+    container_name: back
     depends_on:
       - db
     ports:
@@ -70,13 +70,13 @@ services:
       target : prod
     container_name: doodlefront
     ports:
-      - 80:8080
+      - 8081:8080
       - 443:8443
     volumes:
       - ./server-confs:/server-confs
       #- ./certificates:/etc/letsencrypt
     environment:
-      - SERVER_NAME=ibmaltc.diverse-team.fr pad.ibmaltc.diverse-team.fr myadmin.ibmaltc.diverse-team.fr
+      - SERVER_NAME=ibmaltc.diverse-team.fr pad.ibmaltc.diverse-team.fr myadmin.ibmaltc.diverse-team.fr localhost
       - SERVE_FILES=yes
       - DISABLE_DEFAULT_SERVER=no
       - PROXY_REAL_IP=yes
